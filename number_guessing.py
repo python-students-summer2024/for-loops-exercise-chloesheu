@@ -1,3 +1,4 @@
+import random
 """
 This file contains an incomplete function definition.  
 Your task is to complete the incomplete function definition. so that it behaves as indicated in the documentation.
@@ -24,3 +25,26 @@ def guess_number(low, high, num_attempts):
     :param num_attempts: The number of attempts the user is given to guess the correct number.
     :returns: True if the user answers any attempt correctly, False otherwise.
     """
+
+    random_num = random.randint(low, high)
+
+    print(f"Guess a number between {low} and {high}")
+    print(f"You have {num_attempts} to guess the correct number")
+
+    for i in range(num_attempts):
+        this_input = input("")
+
+        try:
+            guess = int(this_input)
+        except ValueError:
+            print("Invalid input")
+            continue
+
+        if guess == random_num:
+            print("You guessed the correct number")
+            return True
+        else:
+            print("Incorrect guess")
+    
+    print("You failed")
+    return False
